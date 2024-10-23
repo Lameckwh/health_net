@@ -1,95 +1,100 @@
 import React from "react";
 import { Link } from "@inertiajs/inertia-react";
 import {
-    FaUserShield, FaUserMd, FaUser
-} from 'react-icons/fa'; // Importing icons
+    FaUserShield, FaUserMd, FaUser,
+    FaCalendarAlt,
+    FaStethoscope,
+    FaComments,
+    FaHeartbeat,
+    FaPrescriptionBottleAlt
+} from 'react-icons/fa';
+import { HiOutlineViewGrid } from "react-icons/hi";
 
-const Sidebar = () => {
+const Sidebar = ({ role }) => {
     return (
         <div>
-            <nav className="bg-[#07B0F1] text-white w-64 pl-4 flex flex-col overflow-auto h-full pt-8">
-                <div className="">
-                <img src="/logo_sidebar.png" className="w-24 h-12 object-contain mb-4" />
-
+            <nav className="bg-[#07B0F1] text-white w-64 px-4 flex flex-col overflow-auto h-full pt-8">
+                <div>
+                    <img src="/logo_sidebar.png" className="w-24  object-contain mb-10" />
                 </div>
                 <ul>
-                    {/* Admin Menu Items */}
-                    <li className="mb-2">
-                        <Link href="/admin-dashboard" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserShield className="mr-2" /> {/* Admin icon */}
-                            Admin Dashboard
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/admin-users" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUser className="mr-2" /> {/* Users icon */}
-                            Users
-                        </Link>
-                    </li>
+                    {/* Render Admin Items Only if the Role is 'admin' */}
+                    {role === 'admin' && (
+                        <>
+                            <li className="mb-2">
+                                <Link href="/admin-dashboard" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <HiOutlineViewGrid className="mr-2" />Dashboard
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/admin-users" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaUser className="mr-2" /> Users
+                                </Link>
+                            </li>
+                        </>
+                    )}
 
-                    {/* Physician Menu Items */}
-                    <li className="mb-2">
-                        <Link href="/physician-dashboard" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserMd className="mr-2" /> {/* Physician icon */}
-                            Physician Dashboard
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/appointments" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserMd className="mr-2" /> {/* Appointments icon */}
-                            Appointments
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/patients" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserMd className="mr-2" /> {/* Patients icon */}
-                            Patients
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/consultations" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserMd className="mr-2" /> {/* Consultations icon */}
-                            Consultations
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/diagnosis" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserMd className="mr-2" /> {/* Diagnosis icon */}
-                            Diagnosis
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/prescriptions" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUserMd className="mr-2" /> {/* Prescriptions icon */}
-                            Prescriptions
-                        </Link>
-                    </li>
+                    {/* Render Physician Items Only if the Role is 'physician' */}
+                    {role === 'physician' && (
+                        <>
+                            <li className="mb-2">
+                                <Link href="/physician-dashboard" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <HiOutlineViewGrid className="mr-2" /> Dashboard
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/physician/appointments" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaCalendarAlt className="mr-2" /> Appointments
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/physician/patients" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaUserMd className="mr-2" /> Patients
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/physician/consultations" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaComments className="mr-2" /> Consultations
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/physician/diagnosis" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaHeartbeat className="mr-2" /> Diagnosis
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/physician/prescriptions" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaPrescriptionBottleAlt className="mr-2" /> Prescriptions
+                                </Link>
+                            </li>
+                        </>
+                    )}
 
-                    {/* Patient Menu Items */}
-                    <li className="mb-2">
-                        <Link href="/patient-dashboard" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUser className="mr-2" /> {/* Patient icon */}
-                            Patient Dashboard
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/complaints" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUser className="mr-2" /> {/* Complaints icon */}
-                            Complaints
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/medical-history" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUser className="mr-2" /> {/* Medical History icon */}
-                            Medical History
-                        </Link>
-                    </li>
-                    <li className="mb-2">
-                        <Link href="/appointments" className="hover:bg-gray-700 block p-2 rounded flex items-center">
-                            <FaUser className="mr-2" /> {/* Appointments icon */}
-                            Appointments
-                        </Link>
-                    </li>
+                    {/* Render Patient Items Only if the Role is 'patient' */}
+                    {role === 'patient' && (
+                        <>
+                            <li className="mb-2">
+                                <Link href="/patient-dashboard" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <HiOutlineViewGrid className="mr-2" /> Dashboard
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/complaints" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaUser className="mr-2" /> Complaints
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/medical-history" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaUser className="mr-2" /> Medical History
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/appointments" className="hover:bg-sky-700 block p-2 rounded flex items-center">
+                                    <FaUser className="mr-2" /> Appointments
+                                </Link>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </nav>
         </div>

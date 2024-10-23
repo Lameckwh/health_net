@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const MedicalHistory = () => {
+const MedicalHistory = ({role}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newRecord, setNewRecord] = useState({
@@ -163,7 +163,7 @@ const MedicalHistory = () => {
   return (
 <>
 <Head title="Medical History"/>
-<Layout>
+<Layout role={role}>
 <div className="">
       <div className="flex justify-end mt-4 mb-2">
         <div className="flex space-x-4 items-end">

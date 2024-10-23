@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Physician\TreatmentController;
 use App\Http\Controllers\Physician\PrescriptionsController;
 use App\Http\Controllers\Physician\AppointmentsController;
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'verified', 'physician'])->group(function () {
     Route::get('/physician/medical-history', [MedicalHistoryController::class, 'index'])->name('physician.medical-history');
     Route::get('/physician/patients', [PatientsController::class, 'index'])->name('physician.patients');
     Route::get('/physician/consultations', [ConsultationsController::class, 'index'])->name('physician.consultations');
+    Route::get('/physician-dashboard', [DashboardController::class, 'index']);
 
 });
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {

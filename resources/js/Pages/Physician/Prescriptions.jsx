@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const Prescriptions = () => {
+const Prescriptions = ({role}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [newPrescription, setNewPrescription] = useState({
@@ -161,8 +161,8 @@ const Prescriptions = () => {
 
     return (
         <>
-            <Head title="Treatments" />
-            <Layout>
+            <Head title="Prescriptions" />
+            <Layout role={role}>
                 <div className="">
                     <div className="flex justify-end mt-4 mb-2">
                         <div className="flex space-x-4 items-end">

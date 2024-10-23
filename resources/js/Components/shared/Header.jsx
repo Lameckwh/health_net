@@ -3,7 +3,7 @@ import { HiUserCircle, HiOutlineLogout, HiOutlineBell, HiChevronDown, HiOutlineC
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { Link, useForm } from '@inertiajs/inertia-react';
 
-export default function Header({ toggleSidebar, pageTitle = "Dashboard", authUser }) {
+export default function Header({ toggleSidebar, pageTitle = "Health Net", authUser }) {
   const [showNotificationDropdown, setShowNotificationDropdown] = useState(false);
   const [showMessageDropdown, setShowMessageDropdown] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
