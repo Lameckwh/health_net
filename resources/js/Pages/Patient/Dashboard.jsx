@@ -1,13 +1,17 @@
 // resources/js/Pages/Patient/Dashboard.jsx
-import React from 'react';
-import Layout from '../../Components/shared/Layout';
+import React from "react";
+import Layout from "../../Components/shared/Layout";
+import { Head } from "@inertiajs/react";
 
-const Dashboard = () => {
+const Dashboard = ({ role }) => {
     return (
-        <Layout>
-            <h1 className="text-2xl font-bold">Patient Dashboard</h1>
-            {/* Patient dashboard content goes here */}
-        </Layout>
+        <>
+            <Head title="Dashboard" />
+            <Layout role={role}>
+                <h1 className="text-2xl font-bold">Patient Dashboard</h1>
+                {/* Patient dashboard content goes here */}
+            </Layout>
+        </>
     );
 };
 

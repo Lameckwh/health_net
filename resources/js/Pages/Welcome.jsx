@@ -90,29 +90,31 @@ export default function Welcome({ auth }) {
                     </div>
 
                     <div className="flex max-lg:ml-auto space-x-3">
-                        {auth.user ? (
-                            <Link
-                                href={route("dashboard")}
-                                className="font-semibold text-white hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            >
-                                Dashboard
-                            </Link>
-                        ) : (
-                            <>
-                                <Link
-                                    href={route("login")}
-                                    className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-white  transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]"
-                                >
-                                    Log In
-                                </Link>
-                                <Link
-                                    href={route("register")}
-                                    className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]"
-                                >
-                                    Sign Up
-                                </Link>
-                            </>
-                        )}
+                    {auth.user ? (
+    <Link
+        href={auth.user.role === 'admin' ? route("admin-dashboard") : auth.user.role === 'physician' ? route("physician-dashboard") : route("patient-dashboard")}
+        className="font-semibold text-white hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+    >
+        Dashboard
+    </Link>
+) : (
+    <>
+        <Link
+            href={route("login")}
+            className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-white  transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]"
+        >
+            Log In
+        </Link>
+        <Link
+            href={route("register")}
+            className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]"
+        >
+            Sign Up
+        </Link>
+    </>
+)}
+
+
                     </div>
                 </div>
             </header>

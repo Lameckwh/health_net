@@ -130,7 +130,7 @@ export default function Header({ toggleSidebar, pageTitle = "Health Net", authUs
             <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
               <ul className="divide-y divide-gray-200">
                 <li className="p-3 hover:bg-gray-100" onClick={closeAllDropdowns}>
-                  <Link href="/user-profile">Your Profile</Link>
+                  <Link href={route('profile.edit')}>Your Profile</Link>
                 </li>
                 <li className="p-3 hover:bg-gray-100" onClick={closeAllDropdowns}>
                   <Link href="/user-settings">Settings</Link>

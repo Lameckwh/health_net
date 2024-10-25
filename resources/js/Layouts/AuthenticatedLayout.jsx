@@ -5,9 +5,22 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 
-
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+
+    // Determine dashboard link based on user role
+    const dashboardLink = () => {
+        switch (user.role) {
+            case 'admin':
+                return route('admin-dashboard');
+            case 'physician':
+                return route('physician-dashboard');
+            case 'patient':
+                return route('patient-dashboard');
+            default:
+                return route('dashboard');
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -22,7 +35,7 @@ export default function Authenticated({ user, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                                <NavLink href={dashboardLink()} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
                             </div>
@@ -38,7 +51,6 @@ export default function Authenticated({ user, header, children }) {
                                                 className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
-
                                                 <svg
                                                     className="ms-2 -me-0.5 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +105,7 @@ export default function Authenticated({ user, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+                        <ResponsiveNavLink href={dashboardLink()} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
                     </div>
@@ -119,7 +131,6 @@ export default function Authenticated({ user, header, children }) {
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
-
 
             <main>{children}</main>
         </div>
