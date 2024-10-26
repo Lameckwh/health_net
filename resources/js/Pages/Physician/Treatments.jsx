@@ -113,9 +113,7 @@ const Treatments = ({role}) => {
     };
 
     return (
-        <>
-            <Head title="Treatments" />
-            <Layout role={role}>
+
                 <div className="">
                     <div className="flex justify-end mt-4 mb-2">
                         <button
@@ -264,8 +262,7 @@ const Treatments = ({role}) => {
                         </div>
                     )}
                 </div>
-            </Layout>
-        </>
+
     );
 };
 

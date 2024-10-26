@@ -12,9 +12,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('physician'); // Default role as Physician
+            $table->string('role')->default('patient'); // Default role as Patient
         });
     }
+
 
     public function down()
     {

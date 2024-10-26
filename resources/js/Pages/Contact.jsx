@@ -9,9 +9,8 @@ function Contact() {
                 Get in Touch
             </h1>
             <p className="text-sm text-gray-500 mt-4">
-                Have some big idea or brand to develop and need
-                help? Then reach out we'd love to hear about your
-                project and provide help.
+                Have some idea or anything else to communicate and need
+                help? Then reach out we'd love to hear you and provide help.
             </p>
 
             <div className="mt-12">
@@ -39,7 +38,7 @@ function Contact() {
                             className="text-[#007bff] text-sm ml-4"
                         >
                             <small className="block">Mail</small>
-                            <strong>info@example.com</strong>
+                            <strong>info@healthnet.com</strong>
                         </a>
                     </li>
                 </ul>

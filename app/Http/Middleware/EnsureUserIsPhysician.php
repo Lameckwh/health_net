@@ -17,7 +17,7 @@ class EnsureUserIsPhysician
     public function handle(Request $request, Closure $next)
     {
         if (auth()->user()->role !== 'physician') {
-            return redirect('/');
+            return redirect()->route('notfound');
         }
 
         return $next($request);

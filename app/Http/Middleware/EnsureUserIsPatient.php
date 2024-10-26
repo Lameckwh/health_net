@@ -16,7 +16,7 @@ class EnsureUserIsPatient
     public function handle(Request $request, Closure $next)
     {
         if (auth()->user()->role !== 'patient') {
-            return redirect('/');
+            return redirect()->route('notfound');
         }
 
         return $next($request);

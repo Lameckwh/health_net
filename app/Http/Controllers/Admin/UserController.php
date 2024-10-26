@@ -25,6 +25,27 @@ class UserController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8',
+        'role' => 'required|in:admin,physician,patient',
+    ]);
+
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role' => $request->role,
+        'status' => 'active', // Default to active when created
+    ]);
+
+    return redirect()->route('admin-dashboard')->with('success', 'User created successfully.');
+}
+
+
     public function updateRole(Request $request, $id)
     {
         $user = User::findOrFail($id);

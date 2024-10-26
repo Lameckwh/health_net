@@ -9,13 +9,7 @@ function About() {
                 About Us
             </h2>
             <p className="text-gray-800 text-base mb-4">
-                Experience the next level with our premium features.
-                Elevate your journey and achieve unparalleled
-                success. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. elit et luctus interdum, Elevate
-                your journey and achieve unparalleled success. quam
-                odio ultricies ligula, at porttitor metus justo a
-                est.
+            Streamline the process of scheduling, managing, and tracking patient appointments. Reduce wait times and improve patient satisfaction with efficient booking and reminders
             </p>
             <p className="text-gray-600 text-base">
                 Curabitur tristique tempus est, sed fermentum urna

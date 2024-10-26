@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -44,9 +45,7 @@ class RegisteredUserController extends Controller
             'role' => 'patient', // Set default role as physician
         ]);
 
-        Auth::login($user);
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
     }
 
 }
