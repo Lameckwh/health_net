@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react'
 import React from 'react'
 
 function Hero() {
@@ -17,6 +18,7 @@ function Hero() {
         >
             Get Started
         </button>
+
     </div>
 </div>
   )
