@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const Treatments = ({role}) => {
+const Treatments = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [newTreatment, setNewTreatment] = useState({

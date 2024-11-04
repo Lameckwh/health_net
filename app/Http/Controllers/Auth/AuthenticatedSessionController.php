@@ -37,6 +37,8 @@ class AuthenticatedSessionController extends Controller
                     return redirect()->route('physician-dashboard');
                 case 'patient':
                     return redirect()->route('patient-dashboard');
+                case 'pharmacist':
+                    return redirect()->route('pharmacist-dashboard');
                 default:
                     Auth::logout();
                     return redirect('/');

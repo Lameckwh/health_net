@@ -6,8 +6,10 @@ import { MdLocalHospital, MdOutlineReportProblem } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
 import DoctorsDuties from "../Physician/DoctorsDuties";
 import SpecialMedicalDays from "./SpecialMedicalDays";
+import Appointments from "./Appointments";
+import Complaints from "./Complaints";
 
-const Dashboard = ({ role }) => {
+const Dashboard = ({ role, auth }) => {
     function BoxWrapperApplications({ children }) {
         return (
             <div className="bg-[#EEEEEE] rounded-lg p-4 flex-1 flex items-center w-full justify-between">
@@ -18,7 +20,7 @@ const Dashboard = ({ role }) => {
     return (
         <>
             <Head title="Dashboard" />
-            <Layout role={role}>
+            <Layout role={role} authUser={auth.user}>
             <div>
                     <div className="flex space-x-2">
                     <div className="w-3/4">
@@ -35,7 +37,7 @@ const Dashboard = ({ role }) => {
                                     </span>
                                     <div className="flex items-center">
                                         <strong className="text-xl text-gray-700 font-semibold">
-                                            3
+                                        {Appointments.length}
                                         </strong>
                                     </div>
                                 </div>
@@ -64,7 +66,8 @@ const Dashboard = ({ role }) => {
                                     </span>
                                     <div className="flex items-center">
                                         <strong className="text-xl text-gray-700 font-semibold">
-                                            4
+                                        {Complaints.length}
+
                                         </strong>
                                     </div>
                                 </div>

@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const Consultations = ({role}) => {
+const Consultations = ({role, auth}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newConsultation, setNewConsultation] = useState({
@@ -16,19 +16,19 @@ const Consultations = ({role}) => {
   });
   const [consultations, setConsultations] = useState([
     {
-      patientName: "Lucius Malizani",
+      patientName: "Samantha Phirii",
       consultationDate: "2024-08-12",
       physicianName: "Dr. John Smith",
       notes: "Follow-up on blood pressure.",
     },
     {
-      patientName: "Lameck Mbewe",
+      patientName: "Innocent Chitimbe",
       consultationDate: "2024-09-01",
       physicianName: "Dr. Jane Doe",
       notes: "Discussed medication adjustments.",
     },
     {
-      patientName: "Victoria Kasoti",
+      patientName: "Elagant Beauty",
       consultationDate: "2024-07-20",
       physicianName: "Dr. John Smith",
       notes: "Reviewed asthma management plan.",
@@ -37,9 +37,9 @@ const Consultations = ({role}) => {
   const [editIndex, setEditIndex] = useState(null);
 
   const patientOptions = [
-    "Lucius Malizani",
-    "Lameck Mbewe",
-    "Victoria Kasoti",
+    "Samantha Phirii",
+    "Innocent Chitimbe",
+    "Elagant Beauty",
     "John Doe",
     "Jane Smith",
   ];
@@ -150,7 +150,7 @@ const Consultations = ({role}) => {
   return (
     <>
     <Head title="Consultations"/>
-    <Layout role={role}>
+    <Layout role={role} authUser={auth.user}>
     <div className="">
       <div className="flex justify-end mt-4 mb-2">
         <div className="flex space-x-4 items-end">

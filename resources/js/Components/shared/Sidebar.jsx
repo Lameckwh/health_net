@@ -6,7 +6,9 @@ import {
     FaStethoscope,
     FaComments,
     FaHeartbeat,
-    FaPrescriptionBottleAlt
+    FaPrescriptionBottleAlt,
+    FaCommentDots,
+    FaPills
 } from 'react-icons/fa';
 import { HiOutlineViewGrid } from "react-icons/hi";
 
@@ -85,12 +87,13 @@ const Sidebar = ({ role }) => {
                                     <FaHeartbeat className="mr-2" /> Diagnosis
                                 </Link>
                             </li>
+
                             <li className="mb-2">
                                 <Link
-                                    href="/physician/prescriptions"
-                                    className={`block p-2 rounded flex items-center ${currentPath === '/physician/prescriptions' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
+                                    href="/physician/medical-history"
+                                    className={`block p-2 rounded flex items-center ${currentPath === '/physician/medical-history' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
                                 >
-                                    <FaPrescriptionBottleAlt className="mr-2" /> Prescriptions
+                                    <FaPrescriptionBottleAlt className="mr-2" /> Medical History
                                 </Link>
                             </li>
                         </>
@@ -112,7 +115,7 @@ const Sidebar = ({ role }) => {
                                     href="/patients/complaints"
                                     className={`block p-2 rounded flex items-center ${currentPath === '/patients/complaints' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
                                 >
-                                    <FaUser className="mr-2" /> Complaints
+                                    <FaCommentDots className="mr-2" /> Complaints
                                 </Link>
                             </li>
                             <li className="mb-2">
@@ -120,7 +123,7 @@ const Sidebar = ({ role }) => {
                                     href="/patients/medical-history"
                                     className={`block p-2 rounded flex items-center ${currentPath === '/patients/medical-history' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
                                 >
-                                    <FaUser className="mr-2" /> Medical History
+                                    <FaPrescriptionBottleAlt className="mr-2" /> Medical History
                                 </Link>
                             </li>
                             <li className="mb-2">
@@ -128,7 +131,36 @@ const Sidebar = ({ role }) => {
                                     href="/patients/appointments"
                                     className={`block p-2 rounded flex items-center ${currentPath === '/patients/appointments' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
                                 >
-                                    <FaUser className="mr-2" /> Appointments
+                                    <FaCalendarAlt className="mr-2" /> Appointments
+                                </Link>
+                            </li>
+                        </>
+                    )}
+                    {/* Render Pharmacist Items Only if the Role is 'patient' */}
+                    {role === 'pharmacist' && (
+                        <>
+                            <li className="mb-2">
+                                <Link
+                                    href="/pharmacist-dashboard"
+                                    className={`block p-2 rounded flex items-center ${currentPath === '/pharmacist-dashboard' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
+                                >
+                                    <HiOutlineViewGrid className="mr-2" /> Dashboard
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link
+                                    href="/pharmacist/prescriptions"
+                                    className={`block p-2 rounded flex items-center ${currentPath === '/pharmacist/prescriptions' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
+                                >
+                                    <FaPrescriptionBottleAlt className="mr-2" /> Prescriptions
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link
+                                    href="/pharmacist/medical-drugs"
+                                    className={`block p-2 rounded flex items-center ${currentPath === '/pharmacist/medical-drugs' ? 'bg-sky-800' : 'hover:bg-sky-700'}`}
+                                >
+                                    <FaPills className="mr-2" /> Medical Drugs
                                 </Link>
                             </li>
                         </>

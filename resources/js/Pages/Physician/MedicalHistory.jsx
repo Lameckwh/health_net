@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const MedicalHistory = ({role}) => {
+const MedicalHistory = ({role, auth}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newRecord, setNewRecord] = useState({
@@ -20,19 +20,19 @@ const MedicalHistory = ({role}) => {
   });
   const [medicalRecords, setMedicalRecords] = useState([
     {
-      patientName: "Lucius Malizani",
+      patientName: "Samantha Phirii",
       dateOfDiagnosis: "2024-08-12",
       condition: "Hypertension",
       treatment: "Medication & Lifestyle Changes",
     },
     {
-      patientName: "Lameck Mbewe",
+      patientName: "Innocent Chitimbe",
       dateOfDiagnosis: "2024-09-01",
       condition: "Diabetes Type 2",
       treatment: "Insulin & Diet Control",
     },
     {
-      patientName: "Victoria Kasoti",
+      patientName: "Elagant Beauty",
       dateOfDiagnosis: "2024-07-20",
       condition: "Asthma",
       treatment: "Inhaler & Medication",
@@ -41,9 +41,9 @@ const MedicalHistory = ({role}) => {
   const [editIndex, setEditIndex] = useState(null);
 
   const patientOptions = [
-    "Lucius Malizani",
-    "Lameck Mbewe",
-    "Victoria Kasoti",
+    "Samantha Phirii",
+    "Innocent Chitimbe",
+    "Elagant Beauty",
     "John Doe",
     "Jane Smith",
   ];
@@ -163,7 +163,7 @@ const MedicalHistory = ({role}) => {
   return (
 <>
 <Head title="Medical History"/>
-<Layout role={role}>
+<Layout role={role} authUser={auth.user}>
 <div className="">
       <div className="flex justify-end mt-4 mb-2">
         <div className="flex space-x-4 items-end">

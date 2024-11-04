@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const Diagnosis = ({role}) => {
+const Diagnosis = ({role, auth}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newDiagnosis, setNewDiagnosis] = useState({
@@ -16,19 +16,19 @@ const Diagnosis = ({role}) => {
   });
   const [diagnoses, setDiagnoses] = useState([
     {
-      patientName: "Lucius Malizani",
+      patientName: "Samantha Phirii",
       diagnosisDate: "2023-06-15",
       condition: "Diabetes",
       physician: "Dr. Smith",
     },
     {
-      patientName: "Lameck Mbewe",
+      patientName: "Innocent Chitimbe",
       diagnosisDate: "2023-07-20",
       condition: "Hypertension",
       physician: "Dr. Johnson",
     },
     {
-      patientName: "Victoria Kasoti",
+      patientName: "Elagant Beauty",
       diagnosisDate: "2023-08-05",
       condition: "Asthma",
       physician: "Dr. Brown",
@@ -135,7 +135,7 @@ const Diagnosis = ({role}) => {
   return (
 <>
 <Head title="Diagnosis"/>
-<Layout role={role}>
+<Layout role={role} authUser={auth.user}>
 <div className="">
       <div className="flex justify-end mt-4 mb-2">
         <div className="flex space-x-4 items-end">

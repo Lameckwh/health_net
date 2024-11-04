@@ -38,6 +38,7 @@ class User extends Authenticatable
      const ROLE_ADMIN = 'admin';
      const ROLE_PHYSICIAN = 'physician';
      const ROLE_PATIENT = 'patient';
+     const ROLE_PHARMACIST = 'pharmacist';
 
     /**
      * The attributes that should be hidden for serialization.

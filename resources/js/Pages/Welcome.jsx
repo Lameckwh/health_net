@@ -91,12 +91,21 @@ export default function Welcome({ auth }) {
 
                     <div className="flex max-lg:ml-auto space-x-3">
                     {auth.user ? (
-    <Link
-        href={auth.user.role === 'admin' ? route("admin-dashboard") : auth.user.role === 'physician' ? route("physician-dashboard") : route("patient-dashboard")}
-        className="font-semibold text-white hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-    >
-        Dashboard
-    </Link>
+                        <Link
+    href={
+        auth.user.role === 'admin'
+            ? route("admin-dashboard")
+            : auth.user.role === 'physician'
+            ? route("physician-dashboard")
+            : auth.user.role === 'pharmacist'
+            ? route("pharmacist-dashboard")
+            : route("patient-dashboard")
+    }
+    className="font-semibold text-white hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+>
+    Dashboard
+</Link>
+    
 ) : (
     <>
         <Link

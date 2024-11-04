@@ -26,24 +26,27 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8',
-        'role' => 'required|in:admin,physician,patient',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'role' => 'required|in:admin,physician,patient',
+        ]);
 
-    User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => bcrypt($request->password),
-        'role' => $request->role,
-        'status' => 'active', // Default to active when created
-    ]);
+        // Set a default password for new users
+        $defaultPassword = 'Healthnet@2023';
 
-    return redirect()->route('admin-dashboard')->with('success', 'User created successfully.');
-}
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($defaultPassword),
+            'role' => $request->role,
+            'status' => 'active', // Default to active when created
+        ]);
+
+        return redirect()->route('admin-dashboard')->with('success', 'User created successfully with the default password.');
+    }
+
 
 
     public function updateRole(Request $request, $id)

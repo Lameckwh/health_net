@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Physician\TreatmentController;
-use App\Http\Controllers\Physician\PrescriptionsController;
+
+
 use App\Http\Controllers\Physician\AppointmentsController;
 use App\Http\Controllers\Physician\DiagnosisController;
 use App\Http\Controllers\Physician\MedicalHistoryController;
@@ -14,6 +14,9 @@ use App\Http\Controllers\Patient\PatientDashboardController;
 use App\Http\Controllers\Patient\PatientComplaintsController;
 use App\Http\Controllers\Patient\PatientAppointmentsController;
 use App\Http\Controllers\Patient\PatientMedicalHistoryController;
+use App\Http\Controllers\Pharmacist\MedicalDrugsController;
+use App\Http\Controllers\Pharmacist\PharmacistDashboard;
+use App\Http\Controllers\Pharmacist\PrescriptionsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -47,6 +50,11 @@ Route::middleware(['auth', 'verified', 'patient'])->group(function () {
     Route::get('/patients/complaints', [PatientComplaintsController::class, 'index']);
     Route::get('/patients/medical-history', [PatientMedicalHistoryController::class, 'index']);
     Route::get('/patients/appointments', [PatientAppointmentsController::class, 'index']);
+});
+Route::middleware(['auth', 'verified', 'pharmacist'])->group(function () {
+    Route::get('/pharmacist-dashboard', [PharmacistDashboard::class, 'index'])->name('pharmacist-dashboard');
+    Route::get('/pharmacist/prescriptions', [PrescriptionsController::class, 'index'])->name('pharmacist.prescriptions');
+    Route::get('/pharmacist/medical-drugs', [MedicalDrugsController::class, 'index'])->name('pharmacist.medical-drugs');
 });
 
 

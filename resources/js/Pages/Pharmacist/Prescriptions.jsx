@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const Prescriptions = ({role}) => {
+const Prescriptions = ({role, auth}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [newPrescription, setNewPrescription] = useState({
@@ -17,21 +17,21 @@ const Prescriptions = ({role}) => {
     });
     const [prescriptions, setPrescriptions] = useState([
         {
-            patientName: "Lucius Malizani",
+            patientName: "Samantha Phirii",
             prescriptionDate: "2024-08-12",
             medication: "Amlodipine",
             dosage: "5mg",
             instructions: "Once daily in the morning",
         },
         {
-            patientName: "Lameck Mbewe",
+            patientName: "Innocent Chitimbe",
             prescriptionDate: "2024-09-01",
             medication: "Metformin",
             dosage: "500mg",
             instructions: "Twice daily with meals",
         },
         {
-            patientName: "Victoria Kasoti",
+            patientName: "Elagant Beauty",
             prescriptionDate: "2024-07-20",
             medication: "Albuterol",
             dosage: "2 puffs",
@@ -41,9 +41,9 @@ const Prescriptions = ({role}) => {
     const [editIndex, setEditIndex] = useState(null);
 
     const patientOptions = [
-        "Lucius Malizani",
-        "Lameck Mbewe",
-        "Victoria Kasoti",
+        "Samantha Phirii",
+        "Innocent Chitimbe",
+        "Elagant Beauty",
         "John Doe",
         "Jane Smith",
     ];
@@ -162,7 +162,7 @@ const Prescriptions = ({role}) => {
     return (
         <>
             <Head title="Prescriptions" />
-            <Layout role={role}>
+            <Layout role={role} authUser={auth.user}>
                 <div className="">
                     <div className="flex justify-end mt-4 mb-2">
                         <div className="flex space-x-4 items-end">

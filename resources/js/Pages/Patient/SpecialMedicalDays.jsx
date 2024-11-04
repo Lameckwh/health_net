@@ -29,9 +29,7 @@ function SpecialMedicalDays() {
     <div className="p-4 rounded-lg bg-[#EEEEEE] w-full">
       <div className="flex justify-between mb-4">
         <h2 className="text-sm font-bold text-blue-500">Special Medical Days</h2>
-        <button onClick={() => setIsModalOpen(true)}>
-          <FaPlusCircle className="text-blue-500" />
-        </button>
+
       </div>
       <ul className="space-y-1">
         {SPECIAL_DAYS.map((duty) => (

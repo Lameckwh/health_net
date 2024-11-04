@@ -77,7 +77,7 @@ export default function Header({ toggleSidebar, pageTitle = "Health Net", authUs
               <ul className="divide-y divide-gray-200">
                 <li className="flex items-center text-[0.8rem] p-3 hover:bg-gray-100" onClick={closeAllDropdowns}>
                   <span className="h-2 w-2 bg-blue-600 rounded-full mr-2"></span>
-                  New message from Jane Smith
+                  New message from Innocent Chitimbe
                 </li>
                 <li className="flex items-center p-3 text-[0.8rem] hover:bg-gray-100" onClick={closeAllDropdowns}>
                   <span className="h-2 w-2 bg-yellow-600 rounded-full mr-2"></span>
@@ -102,7 +102,7 @@ export default function Header({ toggleSidebar, pageTitle = "Health Net", authUs
               <ul className="divide-y divide-gray-200">
                 <li className="flex items-center text-[0.8rem] p-3 hover:bg-gray-100" onClick={closeAllDropdowns}>
                   <span className="h-2 w-2 bg-blue-600 rounded-full mr-2"></span>
-                  New leave request from John Doe
+                  New appointment request from Samantha
                 </li>
                 <li className="flex items-center p-3 text-[0.8rem] hover:bg-gray-100" onClick={closeAllDropdowns}>
                   <span className="h-2 w-2 bg-yellow-600 rounded-full mr-2"></span>
@@ -110,7 +110,7 @@ export default function Header({ toggleSidebar, pageTitle = "Health Net", authUs
                 </li>
                 <li className="flex items-center p-3 text-[0.8rem] hover:bg-gray-100" onClick={closeAllDropdowns}>
                   <span className="h-2 w-2 bg-green-600 rounded-full mr-2"></span>
-                  New announcement posted
+                  New duties time table posted
                 </li>
               </ul>
             </div>
@@ -121,10 +121,11 @@ export default function Header({ toggleSidebar, pageTitle = "Health Net", authUs
         <div className="relative">
           <button onClick={toggleProfileDropdown} className="relative text-gray-600 focus:outline-none flex items-center gap-0">
             <HiUserCircle className="w-8 h-8" />
-            <HiChevronDown className="w-4 h-4 mt-1" />
             <div>
               <span>{authUser ? authUser.name : "Guest"}</span>
             </div>
+            <HiChevronDown className="w-4 h-4 mt-1" />
+
           </button>
           {showProfileDropdown && (
             <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">

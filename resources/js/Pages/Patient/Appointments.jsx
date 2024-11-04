@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { useTable, useSortBy, usePagination } from "react-table";
 
-const Appointments = ({ role }) => {
+const Appointments = ({ role, auth }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newAppointment, setNewAppointment] = useState({
@@ -133,7 +133,7 @@ const Appointments = ({ role }) => {
   return (
     <>
       <Head title="My Appointments" />
-      <Layout role={role}>
+      <Layout role={role} authUser={auth.user}>
         <div className="">
           <div className="flex justify-end mt-4 mb-2">
             <div className="flex space-x-4 items-end">

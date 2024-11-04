@@ -14,7 +14,7 @@ import { Head } from "@inertiajs/react";
 import Treatments from "./Treatments";
 import DoctorsDuties from "./DoctorsDuties";
 
-const Dashboard = ({ role }) => {
+const Dashboard = ({ role, auth }) => {
     function BoxWrapperApplications({ children }) {
         return (
             <div className="bg-[#EEEEEE] rounded-lg p-4 flex-1 flex items-center w-full justify-between">
@@ -26,7 +26,7 @@ const Dashboard = ({ role }) => {
         <>
             <Head title="Dashboard" />
 
-            <Layout role={role}>
+            <Layout role={role} authUser={auth.user}>
                 <div>
                     <div className="flex space-x-2">
                     <div className="w-3/4">
